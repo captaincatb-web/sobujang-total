@@ -27,6 +27,11 @@ class ConsoleStore(R.ResearchStore):
                 for op in ('UPDATE','DELETE'):
                     self.db.execute(f'CREATE TRIGGER IF NOT EXISTS immutable_{t}_{op} BEFORE {op} ON {t} BEGIN SELECT RAISE(ABORT,"append-only table"); END')
 
+    def add_fact(self,fact,actor,supersedes=None):
+        if fact.get('entity_id') != fact.get('reporting_entity_id'):
+            raise ValueError('본사 재무는 본사 법인에 등록하세요. 자회사 값으로 대체할 수 없습니다.')
+        return super().add_fact(fact,actor,supersedes)
+
     def import_master(self,batch,actor='operator'):
         rows=batch['companies'];source=R.text(batch.get('source_url'),'source_url');bid=hashlib.sha256(R.encode(batch).encode()).hexdigest()
         if self.db.execute('SELECT 1 FROM ingest_batch WHERE id=?',(bid,)).fetchone():return {'inserted':0,'existing_batch':True}

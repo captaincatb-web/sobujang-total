@@ -49,6 +49,11 @@ class ConsoleTests(unittest.TestCase):
         self.s.review_site(exact,'revoked','changed','tester');self.assertEqual(self.s.snapshot(False)['sites'],[])
     def test_classification_requires_allowed_source(self):
         with self.assertRaises(ValueError):self.s.metadata(self.eid,dict(classification_status='verified',source_url='javascript:alert(1)',source_ref='p1'),'tester')
+    def test_parent_financials_cannot_replace_subsidiary(self):
+        other=self.s.add_entity('Synthetic parent','US','tester')
+        f=fact(entity_id=self.eid,reporting_entity_id=other,document_id=self.did,source_url=URL,document_sha256=hashlib.sha256(BODY).hexdigest(),retrieved_at=TIME)
+        with self.assertRaises(ValueError):self.s.add_fact(f,'tester')
+        self.assertEqual(self.s.summary()['counts']['fact'],0)
     def test_restart_preserves_append_only_data(self):
         fid=self.add();self.approve(fid)
         with ConsoleStore(self.path,HOSTS) as other:self.assertTrue(other.snapshot()['facts'][0]['verified'])
