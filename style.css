@@ -6,3 +6,5 @@
 .legacy-panel{margin-bottom:24px}.legacy-note{padding:0 24px 18px;color:#677985;font-size:12px}
 
 .comparison-block{padding:4px 24px 24px}.comparison-block h3{font-size:15px}.bar rect{fill:#0c8e91}
+/* Hosted snapshot has no mutation API. */
+[data-edit-meta],[data-new-fact],[data-review],[data-site-review],[data-revise],[data-bind-legacy],[data-fact-check]{display:none!important}

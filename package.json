@@ -1,1 +1,0 @@
-{"name":"sobujang-total-console","private":true,"scripts":{"dev":"python3 scripts/console/server.py --preview","test":"python3 -m unittest discover -s tests"}}
