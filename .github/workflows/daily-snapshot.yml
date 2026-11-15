@@ -38,7 +38,7 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html guide.html app.js enhance.js style.css world.svg snapshot.json update-status.json _site/
+          cp index.html guide.html hub.html hub.js app.js enhance.js style.css world.svg snapshot.json update-status.json _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
