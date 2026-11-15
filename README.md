@@ -5,11 +5,11 @@
 ## 구현 범위
 
 - 목업의 네이비 사이드바·청록 강조를 반영한 기업 마스터, 상세, 재무 검토, 지도, 이력 화면
-- 기존 마스터 189개(핵심160 + 별도관리29) 보존, ASML 원문 확인 사례 1개 추가
+- 기존 마스터 189개(핵심160 + 별도관리29) 보존, ASML·Tekscend 원문 확인 사례 2개 추가, 총 191개
 - 기존 [국내·글로벌 비교](https://captaincatb-web.github.io/Sangsaengnews/pair-compare.html)의 4개 JSON 재사용: 857개 검토 항목. 모드별 중복이 포함되어 **857개 기업이 아닙니다.**
 - 법인 식별자·관계·사업장, 원문 바이트·해시, 정정 버전·승인·철회 이력 저장
 - 회계기간·연결/개별·통화·원문 단위·URL·표 위치 검사와 미승인 내보내기 차단
-- 3개년 6개 지표의 동일 기준 확인 후 원통화 실적·전년 대비 증감률 표시
+- 3개년 × 2개 지표 = 6개 값의 동일 기준 확인 후 원통화 실적·전년 대비 증감률 표시
 - ASML 공식 2025 연차보고서 276쪽에서 2023–2025 매출·영업이익 6개 값 대조
 - 사업장 등록 및 좌표 승인, 세계/대한민국 지도. 실제 승인 좌표는 현재 0건
 - 배포 없는 Python 3.11/3.12 테스트 CI
@@ -56,7 +56,22 @@ python -m unittest discover -s tests -v
 node --check console/app.js
 ```
 
+## 검토용 완성본 실행
+
+현재 누적 구현은 `codex/primary-source-verification` 브랜치에 있습니다. main에는 아직 반영하지 않았습니다.
+
+```bash
+git clone --branch codex/primary-source-verification --single-branch https://github.com/captaincatb-web/sobujang-total.git
+cd sobujang-total
+python scripts/console/server.py --preview --port 8765
+```
+
+브라우저에서 http://127.0.0.1:8765 를 엽니다. Windows에서 `python`이 없고 Python 런처가 설치되어 있다면 `py -3`으로 바꿉니다. 검증된 값은 ASML·Tekscend 각 6개, 총 12개입니다. 전체 기업 전수 재무와 사업장 좌표 확보는 완료되지 않았습니다.
+
 ## 문서
+
+- [최종 인계와 남은 작업](docs/HANDOFF.md)
+- [공시별 검증 결과·보류 사유](docs/source-verification-progress.md)
 
 - [구현·검증 결과와 남은 데이터 작업](docs/console-delivery.md)
 - [기업·증빙·검토 이력 DB](docs/research-store.md)
@@ -66,4 +81,4 @@ node --check console/app.js
 
 단일 신뢰 운영자의 로컬 앱입니다. 역할별 로그인·다중 사용자 권한·외부 호스팅용 서버가 아닙니다. 원문 대조는 자동 산식 검사를 통과했다는 사실만으로 대체되지 않습니다. SQLite 해시와 append-only 트리거는 DB 소유자에 대한 변조 방지나 검토자 인증을 보장하지 않습니다.
 
-공개 사이트와 수집·배포 Actions는 변경하지 않았습니다. PR #1 → #2 → 콘솔 PR 순서의 검토가 필요하며, main 병합·배포·기존 데이터 삭제는 별도 승인 이후에 진행합니다.
+공개 사이트와 수집·배포 Actions는 변경하지 않았습니다. PR #1 → #2 → #3 → #4 순서의 검토가 필요하며, main 병합·배포·기존 데이터 삭제는 별도 승인 이후에 진행합니다.
