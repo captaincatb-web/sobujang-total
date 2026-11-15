@@ -495,6 +495,30 @@
       }
     },
     {
+      "id": "ent_07b86b7d804d40deb8aabbd66384ba03",
+      "legal_name": "Tekscend Photomask Corporation",
+      "country": "JP",
+      "created_at": "2026-11-14T23:25:41.713889+00:00",
+      "meta": {
+        "business_type": "해외 본사",
+        "category": "소재",
+        "classification_status": "candidate",
+        "market": "미확인",
+        "population": "new",
+        "process": "포토",
+        "source_ref": "공식 EDINET PDF 154쪽의 두 행과 3개 연도·백만 엔 단위를 화면 대조함. 159쪽: 2025년 IFRS 최초 적용, 전환일 2022-04-01. 2023~2025 모두 이 공시의 IFRS 비교 수치이며 과거 일본 기준 공시와 혼합하지 않음. 2026-11-15 확인. 배포 승인과 별개.",
+        "source_url": "https://disclosure2dl.edinet-fsa.go.jp/searchdocument/pdf/S100WN47.pdf"
+      },
+      "identifiers": [],
+      "verified_facts": 6,
+      "pending_facts": 0,
+      "coverage": {
+        "2023": 2,
+        "2024": 2,
+        "2025": 2
+      }
+    },
+    {
       "id": "ent_372aacc2a7f34dd58a409dd2bc637784",
       "legal_name": "고려아연",
       "country": "KR",
@@ -5514,6 +5538,198 @@
   ],
   "facts": [
     {
+      "id": "tekscend-ifrs-2025-operating_income-cdaa557a77a0",
+      "entity_id": "ent_07b86b7d804d40deb8aabbd66384ba03",
+      "payload": {
+        "metric": "operating_income",
+        "accounting_standard": "IFRS",
+        "fiscal_year_label": "Year ended March 31, 2025",
+        "period_start": "2024-04-01",
+        "period_end": "2025-03-31",
+        "fiscal_end_year": 2025,
+        "scope": "consolidated",
+        "currency": "JPY",
+        "raw_value": "28199",
+        "raw_unit": "JPY millions",
+        "unit_multiplier": "1000000",
+        "value_native": "28199000000",
+        "document_sha256": "cdaa557a77a0e5a0f2fa7eccc15ffd9ea2bd24b58a33fcf2c7d2049572bd130b",
+        "source_url": "https://disclosure2dl.edinet-fsa.go.jp/searchdocument/pdf/S100WN47.pdf",
+        "retrieved_at": "2026-11-14T23:25:41.719167+00:00",
+        "reported_or_derived": "reported",
+        "source_locator": {
+          "type": "pdf",
+          "page": 154,
+          "table": "連結損益計算書",
+          "row": "営業利益",
+          "column": "2025年3月31日"
+        }
+      },
+      "status": "approved",
+      "verified": true,
+      "issues": []
+    },
+    {
+      "id": "tekscend-ifrs-2024-operating_income-cdaa557a77a0",
+      "entity_id": "ent_07b86b7d804d40deb8aabbd66384ba03",
+      "payload": {
+        "metric": "operating_income",
+        "accounting_standard": "IFRS",
+        "fiscal_year_label": "Year ended March 31, 2024",
+        "period_start": "2023-04-01",
+        "period_end": "2024-03-31",
+        "fiscal_end_year": 2024,
+        "scope": "consolidated",
+        "currency": "JPY",
+        "raw_value": "19827",
+        "raw_unit": "JPY millions",
+        "unit_multiplier": "1000000",
+        "value_native": "19827000000",
+        "document_sha256": "cdaa557a77a0e5a0f2fa7eccc15ffd9ea2bd24b58a33fcf2c7d2049572bd130b",
+        "source_url": "https://disclosure2dl.edinet-fsa.go.jp/searchdocument/pdf/S100WN47.pdf",
+        "retrieved_at": "2026-11-14T23:25:41.719167+00:00",
+        "reported_or_derived": "reported",
+        "source_locator": {
+          "type": "pdf",
+          "page": 154,
+          "table": "連結損益計算書",
+          "row": "営業利益",
+          "column": "2024年3月31日"
+        }
+      },
+      "status": "approved",
+      "verified": true,
+      "issues": []
+    },
+    {
+      "id": "tekscend-ifrs-2023-operating_income-cdaa557a77a0",
+      "entity_id": "ent_07b86b7d804d40deb8aabbd66384ba03",
+      "payload": {
+        "metric": "operating_income",
+        "accounting_standard": "IFRS",
+        "fiscal_year_label": "Year ended March 31, 2023",
+        "period_start": "2022-04-01",
+        "period_end": "2023-03-31",
+        "fiscal_end_year": 2023,
+        "scope": "consolidated",
+        "currency": "JPY",
+        "raw_value": "28680",
+        "raw_unit": "JPY millions",
+        "unit_multiplier": "1000000",
+        "value_native": "28680000000",
+        "document_sha256": "cdaa557a77a0e5a0f2fa7eccc15ffd9ea2bd24b58a33fcf2c7d2049572bd130b",
+        "source_url": "https://disclosure2dl.edinet-fsa.go.jp/searchdocument/pdf/S100WN47.pdf",
+        "retrieved_at": "2026-11-14T23:25:41.719167+00:00",
+        "reported_or_derived": "reported",
+        "source_locator": {
+          "type": "pdf",
+          "page": 154,
+          "table": "連結損益計算書",
+          "row": "営業利益",
+          "column": "2023年3月31日"
+        }
+      },
+      "status": "approved",
+      "verified": true,
+      "issues": []
+    },
+    {
+      "id": "tekscend-ifrs-2025-revenue-cdaa557a77a0",
+      "entity_id": "ent_07b86b7d804d40deb8aabbd66384ba03",
+      "payload": {
+        "metric": "revenue",
+        "accounting_standard": "IFRS",
+        "fiscal_year_label": "Year ended March 31, 2025",
+        "period_start": "2024-04-01",
+        "period_end": "2025-03-31",
+        "fiscal_end_year": 2025,
+        "scope": "consolidated",
+        "currency": "JPY",
+        "raw_value": "117974",
+        "raw_unit": "JPY millions",
+        "unit_multiplier": "1000000",
+        "value_native": "117974000000",
+        "document_sha256": "cdaa557a77a0e5a0f2fa7eccc15ffd9ea2bd24b58a33fcf2c7d2049572bd130b",
+        "source_url": "https://disclosure2dl.edinet-fsa.go.jp/searchdocument/pdf/S100WN47.pdf",
+        "retrieved_at": "2026-11-14T23:25:41.719167+00:00",
+        "reported_or_derived": "reported",
+        "source_locator": {
+          "type": "pdf",
+          "page": 154,
+          "table": "連結損益計算書",
+          "row": "売上収益",
+          "column": "2025年3月31日"
+        }
+      },
+      "status": "approved",
+      "verified": true,
+      "issues": []
+    },
+    {
+      "id": "tekscend-ifrs-2024-revenue-cdaa557a77a0",
+      "entity_id": "ent_07b86b7d804d40deb8aabbd66384ba03",
+      "payload": {
+        "metric": "revenue",
+        "accounting_standard": "IFRS",
+        "fiscal_year_label": "Year ended March 31, 2024",
+        "period_start": "2023-04-01",
+        "period_end": "2024-03-31",
+        "fiscal_end_year": 2024,
+        "scope": "consolidated",
+        "currency": "JPY",
+        "raw_value": "107086",
+        "raw_unit": "JPY millions",
+        "unit_multiplier": "1000000",
+        "value_native": "107086000000",
+        "document_sha256": "cdaa557a77a0e5a0f2fa7eccc15ffd9ea2bd24b58a33fcf2c7d2049572bd130b",
+        "source_url": "https://disclosure2dl.edinet-fsa.go.jp/searchdocument/pdf/S100WN47.pdf",
+        "retrieved_at": "2026-11-14T23:25:41.719167+00:00",
+        "reported_or_derived": "reported",
+        "source_locator": {
+          "type": "pdf",
+          "page": 154,
+          "table": "連結損益計算書",
+          "row": "売上収益",
+          "column": "2024年3月31日"
+        }
+      },
+      "status": "approved",
+      "verified": true,
+      "issues": []
+    },
+    {
+      "id": "tekscend-ifrs-2023-revenue-cdaa557a77a0",
+      "entity_id": "ent_07b86b7d804d40deb8aabbd66384ba03",
+      "payload": {
+        "metric": "revenue",
+        "accounting_standard": "IFRS",
+        "fiscal_year_label": "Year ended March 31, 2023",
+        "period_start": "2022-04-01",
+        "period_end": "2023-03-31",
+        "fiscal_end_year": 2023,
+        "scope": "consolidated",
+        "currency": "JPY",
+        "raw_value": "100782",
+        "raw_unit": "JPY millions",
+        "unit_multiplier": "1000000",
+        "value_native": "100782000000",
+        "document_sha256": "cdaa557a77a0e5a0f2fa7eccc15ffd9ea2bd24b58a33fcf2c7d2049572bd130b",
+        "source_url": "https://disclosure2dl.edinet-fsa.go.jp/searchdocument/pdf/S100WN47.pdf",
+        "retrieved_at": "2026-11-14T23:25:41.719167+00:00",
+        "reported_or_derived": "reported",
+        "source_locator": {
+          "type": "pdf",
+          "page": 154,
+          "table": "連結損益計算書",
+          "row": "売上収益",
+          "column": "2023年3月31日"
+        }
+      },
+      "status": "approved",
+      "verified": true,
+      "issues": []
+    },
+    {
       "id": "asml-usgaap-2025-operating_income-add58be9d982",
       "entity_id": "ent_6098d1e07c6a4d46a2b54800d0084bd8",
       "payload": {
@@ -5714,6 +5930,13 @@
       "sha256": "add58be9d9822ca12584b63c55c089b36e1ae5bf7a1825ebf1d1572628f2c52c",
       "retrieved_at": "2026-11-14T11:09:24.232029+00:00",
       "bytes": 23928741
+    },
+    {
+      "id": "doc_934532be04b44bdd892f76738dc0165c",
+      "url": "https://disclosure2dl.edinet-fsa.go.jp/searchdocument/pdf/S100WN47.pdf",
+      "sha256": "cdaa557a77a0e5a0f2fa7eccc15ffd9ea2bd24b58a33fcf2c7d2049572bd130b",
+      "retrieved_at": "2026-11-14T23:25:41.719167+00:00",
+      "bytes": 1684316
     }
   ],
   "relations": [],
@@ -23357,6 +23580,43 @@
   ],
   "comparisons": [
     {
+      "entity_id": "ent_07b86b7d804d40deb8aabbd66384ba03",
+      "currency": "JPY",
+      "scope": "consolidated",
+      "accounting_standard": "IFRS",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "series": {
+        "revenue": {
+          "values": [
+            "100782000000",
+            "107086000000",
+            "117974000000"
+          ],
+          "yoy_percent": [
+            null,
+            "6.26",
+            "10.17"
+          ]
+        },
+        "operating_income": {
+          "values": [
+            "28680000000",
+            "19827000000",
+            "28199000000"
+          ],
+          "yoy_percent": [
+            null,
+            "-30.87",
+            "42.23"
+          ]
+        }
+      }
+    },
+    {
       "entity_id": "ent_6098d1e07c6a4d46a2b54800d0084bd8",
       "currency": "EUR",
       "scope": "consolidated",
@@ -23395,8 +23655,8 @@
     }
   ],
   "counts": {
-    "entity": 190,
-    "fact": 6,
+    "entity": 191,
+    "fact": 12,
     "site": 0
   },
   "official_hosts": [
@@ -23409,5 +23669,5 @@
     "ourbrand.asml.com",
     "www.asml.com"
   ],
-  "generated_at": "2026-11-14T11:10:55.631357+00:00"
+  "generated_at": "2026-11-14T23:27:06.708878+00:00"
 }

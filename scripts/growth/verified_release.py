@@ -27,6 +27,9 @@ PUBLIC = ('metric', 'accounting_standard', 'fiscal_year_label', 'period_start', 
           'value_native', 'document_sha256', 'source_url', 'retrieved_at', 'reported_or_derived')
 
 
+OPTIONAL_PUBLIC = ('comparison_eligible', 'metric_basis')
+
+
 def digest(fact):
     return hashlib.sha256(json.dumps(fact, sort_keys=True, ensure_ascii=False,
                                     separators=(',', ':'), allow_nan=False).encode()).hexdigest()
@@ -69,6 +72,10 @@ def validate(fact, hosts):
               if not isinstance(fact.get(k), str) or not fact[k].strip()]
     if errors:
         return errors
+    if 'comparison_eligible' in fact and type(fact['comparison_eligible']) is not bool:
+        errors.append('invalid_comparison_eligibility')
+    if 'metric_basis' in fact and fact['metric_basis'] not in ('reported','adjusted','issuer_defined'):
+        errors.append('invalid_metric_basis')
     if fact['metric'] not in ('revenue', 'operating_income'):
         errors.append('invalid_metric')
     if fact['scope'] not in ('standalone', 'consolidated', 'combined', 'carve_out'):
@@ -171,7 +178,7 @@ def build_release(facts, reviews, official_hosts):
         if not isinstance(review.get('reviewer'), str) or not review['reviewer'].strip() or not timestamp(review.get('reviewed_at')):
             errors['invalid_review_metadata'] += 1
         loc = fact['source_locator']
-        safe.append({**{k: fact[k] for k in PUBLIC}, 'fact_sha256': sha,
+        safe.append({**{k: fact[k] for k in PUBLIC + OPTIONAL_PUBLIC if k in fact}, 'fact_sha256': sha,
                      'source_locator': {k: loc[k] for k in ('type',) + LOCATORS[loc['type']]}})
     errors['mixed_scope'] += sum(len(v) > 1 for v in scopes.values())
     errors['inconsistent_period_currency_document'] += sum(len(v) > 1 for v in periods.values())

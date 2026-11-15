@@ -1,0 +1,37 @@
+{
+  "source_url": "https://disclosure2dl.edinet-fsa.go.jp/searchdocument/pdf/S100WN47.pdf",
+  "document_sha256": "cdaa557a77a0e5a0f2fa7eccc15ffd9ea2bd24b58a33fcf2c7d2049572bd130b",
+  "page": 154,
+  "table": "連結損益計算書",
+  "entity": "Tekscend Photomask Corporation",
+  "country": "JP",
+  "scope": "consolidated",
+  "accounting_standard": "IFRS",
+  "currency": "JPY",
+  "raw_unit": "JPY millions",
+  "unit_multiplier": "1000000",
+  "years": [
+    2023,
+    2024,
+    2025
+  ],
+  "rows": {
+    "revenue": {
+      "label": "売上収益",
+      "values": [
+        "100782",
+        "107086",
+        "117974"
+      ]
+    },
+    "operating_income": {
+      "label": "営業利益",
+      "values": [
+        "28680",
+        "19827",
+        "28199"
+      ]
+    }
+  },
+  "verification_note": "공식 EDINET PDF 154쪽의 두 행과 3개 연도·백만 엔 단위를 화면 대조함. 159쪽: 2025년 IFRS 최초 적용, 전환일 2022-04-01. 2023~2025 모두 이 공시의 IFRS 비교 수치이며 과거 일본 기준 공시와 혼합하지 않음. 2026-11-15 확인. 배포 승인과 별개."
+}
