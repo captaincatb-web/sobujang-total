@@ -30,6 +30,16 @@ class ConsoleTests(unittest.TestCase):
         snap=self.s.snapshot(False);text=json.dumps(snap)
         for secret in ['secret-value','private-reviewer','private-note','private-id','private-classification']:self.assertNotIn(secret,text)
         self.assertEqual(len(snap['facts']),1);self.assertEqual(snap['events'],[])
+    def test_comparison_hold_survives_public_projection(self):
+        fid=self.add(comparison_eligible=False,metric_basis='issuer_defined');self.approve(fid)
+        payload=self.s.snapshot(False)['facts'][0]['payload']
+        self.assertIs(payload['comparison_eligible'],False)
+        self.assertEqual(payload['metric_basis'],'issuer_defined')
+        release=self.s.export_current([fid],'tester')
+        self.assertIn('issuer_defined',json.dumps(release))
+    def test_invalid_comparison_metadata_blocks_approval(self):
+        fid=self.add(comparison_eligible='false')
+        with self.assertRaises(ValueError):self.approve(fid)
     def test_public_projection_hides_pending_and_revoked(self):
         fid=self.add();self.assertEqual(self.s.snapshot(False)['facts'],[]);self.approve(fid)
         self.s.review_fact(fid,'revoked','tester','correction',HOSTS);self.assertEqual(self.s.snapshot(False)['facts'],[])

@@ -6,7 +6,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'growth'))
 import research_store as R
 import verified_release as V
 import legacy_compare as L
-from comparison import panels
+from comparison import panels, comparison_results
 
 ROOT=Path(__file__).resolve().parents[2]
 DEFAULT_HOSTS=['www.sec.gov','data.sec.gov','dart.fss.or.kr','opendart.fss.or.kr','disclosure2.edinet-fsa.go.jp','disclosure2dl.edinet-fsa.go.jp','ourbrand.asml.com','www.asml.com']
@@ -104,13 +104,13 @@ class ConsoleStore(R.ResearchStore):
                 c['identifiers']=[i for i in c['identifiers'] if i['namespace'] in ('legacy:KRX','KRX','CIK')]
             for f in facts:
                 p=f['payload'];loc=p['source_locator']
-                f['payload']={**{k:p[k] for k in V.PUBLIC},'source_locator':{k:loc[k] for k in ('type',)+V.LOCATORS[loc['type']]}}
+                f['payload']={**{k:p[k] for k in V.PUBLIC + V.OPTIONAL_PUBLIC if k in p},'source_locator':{k:loc[k] for k in ('type',)+V.LOCATORS[loc['type']]}}
                 f.pop('review',None);f.pop('supersedes',None)
         return {'mode':'local' if private else 'preview','companies':companies,'facts':facts,'sites':sites,
                 'documents':[dict(r) for r in self.db.execute('SELECT id,url,sha256,retrieved_at,length(body) AS bytes FROM document') if private or any(s['document_id']==r['id'] for s in sites) or any(f['payload']['document_sha256']==r['sha256'] for f in facts)],
                 'relations':[dict(r) for r in self.db.execute('SELECT * FROM entity_relation')] if private else [],
                 'events':[dict(r) for r in self.db.execute('SELECT * FROM audit_event ORDER BY seq DESC LIMIT 100')] if private else [],
-                'legacy':L.inventory(self,private),'comparisons':panels(facts),
+                'legacy':L.inventory(self,private),'comparisons':panels(facts),'comparison_exclusions':comparison_results(facts)['excluded'],
                 'counts':self.summary()['counts'] if private else {'entity':len(companies),'fact':len(facts),'site':len(sites)},'official_hosts':self.hosts,'generated_at':R.now()}
 
     def export_current(self,ids,actor):
